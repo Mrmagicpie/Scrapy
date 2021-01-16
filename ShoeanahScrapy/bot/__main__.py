@@ -8,6 +8,7 @@
 import discord, asyncio, os, logging, multiprocessing, json
 from discord.ext import commands
 from yaml import safe_load as sl
+from io import BytesIO
 
 # The CrawlerProcess will run the scraper properly.
 from scrapy.crawler import CrawlerProcess
@@ -113,10 +114,8 @@ async def test(ctx):
     p.start()
     p.join()
     project = queue.get()
-    with open("Scraper Output.json", "w") as f:
-        f.write(json.dumps(project))
-    await ctx.send(f"We ran your scraper, and the output is sent in a file!", files=[discord.File("Scraper Output.json")])
-    os.remove("Scraper Output.json")
+    f = BytesIO(project)
+    await ctx.send(f"We ran your scraper, and the output is sent in a file!", file=discord.File(f, "Scrapper Output.json"))
     return
 
 #
