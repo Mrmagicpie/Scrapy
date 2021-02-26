@@ -4,16 +4,14 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #
-import scrapy, time
-from pprint import PrettyPrinter
+from scrapy import Spider
 #
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #
-class OhNoScraper(scrapy.Spider):
+class OhNoScraper(Spider):
 
-    pp         = PrettyPrinter(indent=4)
     name       = "ohno"
     start_urls = [input("Enter your URL: "),]
     count      = 1
@@ -34,7 +32,7 @@ class OhNoScraper(scrapy.Spider):
                     method="GET"
                 )
 
-        print(self.count)
+        print("Final count:" + self.count)
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
