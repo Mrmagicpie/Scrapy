@@ -5,6 +5,7 @@
 #
 #
 from scrapy import Spider
+import scrapy
 #
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
